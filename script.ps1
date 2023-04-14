@@ -3,7 +3,7 @@ param(
     [Switch]$ExitCode, 
     $Parameter1
 )
-
+echo $Env:MyVariable
 if ($Fail) {
     throw "This script fails!"
 }
