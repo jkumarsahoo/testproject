@@ -4,6 +4,7 @@ param(
     $Parameter1
 )
 echo "env variable is:" $Env:MyVariable
+echo "env variable is:" $Env:NewVariable
 if ($Fail) {
     throw "This script fails!"
 }
