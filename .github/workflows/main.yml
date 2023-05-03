@@ -30,7 +30,9 @@ jobs:
           echo ${{ inputs.SPN_Environment }}
           - if: |
               github.evnet.inputs.SPN_Environment  == 'SIT_SPN_SECRET'
-              echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
+              run: |
+               echo "Hello all"
+               echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
           
     
 
