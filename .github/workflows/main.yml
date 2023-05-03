@@ -3,13 +3,14 @@ name: caller_workflow_import_solutions_to_target_env
 on:
   workflow_dispatch:
     inputs:
-      solution_type:
-        description: "Managed or Unmanaged"
+      SPN_Environment:
+        description: "SIT or UAT or PROD"
         type: choice
         required: true
         options: 
-        - managed
-        - unmanaged
+        - SIT_SPN_SECRET
+        - UAT_SPN_SECRET
+        - PROD_SPN_SECRET
 
 
 jobs:
@@ -25,6 +26,9 @@ jobs:
           echo ${{ secrets.SECRET_TOKEN }}
           echo "Trick to echo GitHub Actions Secret:  "
           echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g'
+          echo " SPN Envrionment is: " ${{ github.evnet.inputs.SPN_Environment }}
+          echo ${{secrets.${{ github.evnet.inputs.SPN_Environment }}}} | sed 's/./& /g'
+          
     
 
     
