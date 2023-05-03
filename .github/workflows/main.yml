@@ -12,7 +12,7 @@ on:
         - UAT_SPN_SECRET
         - PROD_SPN_SECRET
 env: 
-  SPN_Secret: secrets.${{ github.evnet.inputs.SPN_Environment }}
+  SPN_Secret: secrets.${{ inputs.SPN_Environment }}
 
 jobs:
   
@@ -28,7 +28,7 @@ jobs:
           echo "Trick to echo GitHub Actions Secret:  "
           echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g'
           echo ${{ inputs.SPN_Environment }}
-          - if: ${{ github.evnet.inputs.SPN_Environment }} == 'SIT_SPN_SECRET'
+          - if: ${{ inputs.SPN_Environment }} == 'SIT_SPN_SECRET'
             echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
           
     
