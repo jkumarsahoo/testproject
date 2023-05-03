@@ -12,7 +12,7 @@ on:
         - UAT_SPN_SECRET
         - PROD_SPN_SECRET
 env: 
-  SPN_Secret: ${{ github.evnet.inputs.SPN_Environment }}
+  SPN_Secret: secrets.${{ github.evnet.inputs.SPN_Environment }}
 
 jobs:
   
@@ -28,7 +28,7 @@ jobs:
           echo "Trick to echo GitHub Actions Secret:  "
           echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g'
           echo " SPN Envrionment is: " ${{ github.evnet.inputs.SPN_Environment }}
-          echo ${{"secrets." +SPN_Secret }} | sed 's/./& /g'
+          echo ${{ SPN_Secret }} | sed 's/./& /g'
           
     
 
