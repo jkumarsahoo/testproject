@@ -29,7 +29,7 @@ jobs:
           echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g'
           echo " SPN Envrionment is: " ${{ github.evnet.inputs.SPN_Environment }}
           - if: ${{ github.evnet.inputs.SPN_Environment }} == 'SIT_SPN_SECRET'
-            echo ${{ secret.SIT_SPN_SECRET }} | sed 's/./& /g'
+            echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
           
     
 
