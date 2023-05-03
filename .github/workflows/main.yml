@@ -28,7 +28,7 @@ jobs:
           echo "Trick to echo GitHub Actions Secret:  "
           echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g'
           echo ${{ inputs.SPN_Environment }}
-          - if: ${{ inputs.SPN_Environment }} == 'SIT_SPN_SECRET'
+          - if: ${{ inputs.SPN_Environment  == 'SIT_SPN_SECRET' }}
             echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
           
     
