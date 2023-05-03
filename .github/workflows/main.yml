@@ -28,7 +28,7 @@ jobs:
           echo "Trick to echo GitHub Actions Secret:  "
           echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g'
           echo " SPN Envrionment is: " ${{ github.evnet.inputs.SPN_Environment }}
-          echo ${{secrets.$SPN_Secret}} | sed 's/./& /g'
+          echo ${{"secrets." +SPN_Secret }} | sed 's/./& /g'
           
     
 
