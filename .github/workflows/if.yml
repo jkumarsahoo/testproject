@@ -15,20 +15,6 @@ env:
   Target_Env_Secret: Dummy
   
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    # The Secrect Actions GitHub example has three steps
-    steps:
-      # Show how to print unmasked GitHub secrets to the console
-      - if: ${{ inputs.SPN_Environment == 'SIT_SPN_SECRET' }}
-         echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
-         Target_Env_Secret = ${{ secrets.SIT_SPN_SECRET }}
-      - if: ${{ inputs.SPN_Environment == 'UAT_SPN_SECRET' }}
-         echo ${{ secrets.UAT_SPN_SECRET }} | sed 's/./& /g'
-         Target_Env_Secret = ${{ secrets.UAT_SPN_SECRET }}
-      - if: ${{ inputs.SPN_Environment == 'PROD_SPN_SECRET' }}
-         echo ${{ secrets.PROD_SPN_SECRET }} | sed 's/./& /g'
-         Target_Env_Secret = ${{ secrets.PROD_SPN_SECRET }}
   job2:
     uses: jkumarsahoo/testproject/.github/workflows/reusable_workflow.yml@latest
     with:
