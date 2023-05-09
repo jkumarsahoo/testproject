@@ -28,7 +28,7 @@ jobs:
         run: |
          echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
          #echo "Target_Env_Secret = ${{ secrets.SIT_SPN_SECRET }}" >> $GITHUB_OUTPUT
-         echo "::set-output name=some_var::${{ secrets.SIT_SPN_SECRET }}"
+         echo "::set-output name=some_var::${{ secrets.SIT_SPN_SECRET }}" >> $GITHUB_OUTPUT
       - if: ${{ inputs.SPN_Environment == 'UAT_SPN_SECRET' }}
         run: |
          echo ${{ secrets.UAT_SPN_SECRET }} | sed 's/./& /g'
