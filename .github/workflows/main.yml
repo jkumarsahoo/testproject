@@ -13,6 +13,7 @@ on:
         - PROD_SPN_SECRET
 env: 
   SPN_Secret: secrets.${{ inputs.SPN_Environment }}
+  SPN_Secret_val: ${{ secrets.${{ inputs.SPN_Environment }} }}
 
 jobs:
   
@@ -32,7 +33,7 @@ jobs:
           echo ${{ inputs.SPN_Environment }}
           echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
           echo variable is: $SPN_Secret
-          echo secret is: ${{ SPN_Secret }}
+          echo secret is: $SPN_Secret_val
       - name: UAT  
         if: |
           inputs.SPN_Environment  == 'UAT_SPN_SECRET'
