@@ -1,4 +1,4 @@
-name: caller_workflow_import_solutions_to_target_env
+name: main
 
 on:
   workflow_dispatch:
