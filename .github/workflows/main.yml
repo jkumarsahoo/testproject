@@ -14,6 +14,9 @@ on:
 env: 
   SPN_Secret: secrets.${{ inputs.SPN_Environment }}
   SPN_Secret_val: ${{ secrets.${{ inputs.SPN_Environment }} }}
+  SPN_Secret_val1: ${{ SPN_Secret }}
+  SPN_Secret_val2: ${{ $SPN_Secret }}
+  SPN_Secret_val3: $SPN_Secret
 
 jobs:
   
@@ -34,13 +37,16 @@ jobs:
           echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
           echo variable is: $SPN_Secret
           echo secret is: $SPN_Secret_val
+          echo secret is: $SPN_Secret_val1
+          echo secret is: $SPN_Secret_val2
+          echo secret is: $SPN_Secret_val3
       - name: UAT  
         if: |
           inputs.SPN_Environment  == 'UAT_SPN_SECRET'
         run: |
           echo ${{ inputs.SPN_Environment }}
           echo ${{ secrets.UAT_SPN_SECRET }} | sed 's/./& /g'
-          echo variable is: ${{ SPN_Secret }}
+          echo variable is: $SPN_Secret
           
       - name: PROD  
         if: |
@@ -48,7 +54,7 @@ jobs:
         run: |
           echo ${{ inputs.SPN_Environment }}
           echo ${{ secrets.PROD_SPN_SECRET }} | sed 's/./& /g'
-          echo variable is: ${{ SPN_Secret }}
+          echo variable is: $SPN_Secret
           
        
           
