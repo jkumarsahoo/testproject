@@ -1,0 +1,12 @@
+name: caller_worklfow
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    name: Step1
+    uses: jkumarsahoo/testproject/.github/workflows/reusable-workflow.yml@main
+    secrets:
+      my-secret: ${{ secrets.PROD_SPN_SECRET }}
+    with:
+      my-input:  ${{ secrets.PROD_SPN_SECRET }}
