@@ -28,7 +28,7 @@ jobs:
         run: |
          echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
          #echo "Target_Env_Secret = ${{ secrets.SIT_SPN_SECRET }}" >> $GITHUB_OUTPUT
-         echo "::set-output name=some_var::${{ secrets.SIT_SPN_SECRET }}" >> $GITHUB_OUTPUT
+         echo "some_var=${{ secrets.SIT_SPN_SECRET }}" >> $GITHUB_OUTPUT
       - if: ${{ inputs.SPN_Environment == 'UAT_SPN_SECRET' }}
         run: |
          echo ${{ secrets.UAT_SPN_SECRET }} | sed 's/./& /g'
@@ -41,7 +41,8 @@ jobs:
     needs: job1
     uses: jkumarsahoo/testproject/.github/workflows/reusable_workflow.yml@main
     secrets:
-      TARGET_ENV_SECRET: ${{ needs.job1.outputs.Target_Env_Secret }}
+      #TARGET_ENV_SECRET: ${{ needs.job1.outputs.Target_Env_Secret }}
+      TARGET_ENV_SECRET: ${{ needs.job1.outputs.some_var }}
     
 
      
