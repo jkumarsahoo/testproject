@@ -1,0 +1,41 @@
+name: caller_workflow_import_solutions_to_target_env
+
+on:
+  workflow_dispatch:
+    inputs:
+      SPN_Environment:
+        description: "SIT or UAT or PROD"
+        type: choice
+        required: true
+        options: 
+        - SIT_SPN_SECRET
+        - UAT_SPN_SECRET
+        - PROD_SPN_SECRET
+env: 
+  SPN_Secret: secrets.${{ inputs.SPN_Environment }}
+  SPN_ENV: ${{ inputs.SPN_Environment }}
+  SPN_ENV_SECRET: ${{ secrets.SPN_ENV_SECRET }}
+  #SPN_Secret_val: ${{ secrets.$SPN_Secret }}
+  SPN_Secret_val4: ${{ secrets.SPN_Secret }}
+  SPN_Secret_val5: $secrets.SPN_Secret
+  #SPN_Secret_val6: secrets.SPN_Secret
+  #SPN_Secret_val: ${{ secrets.${{ inputs.SPN_Environment }} }}
+  #SPN_Secret_val1: ${{ SPN_Secret }}
+  #SPN_Secret_val2: ${{ $SPN_Secret }}
+  #SPN_Secret_val3: $SPN_Secret
+
+jobs:
+  
+  call-reusable_workflow_import_solutions_to_target_env:
+    runs-on: ubuntu-latest
+    # The Secrect Actions GitHub example has three steps
+    steps:
+      # Show how to print unmasked GitHub secrets to the console
+      - if: ${{ inputs.SPN_Environment == 'SIT_SPN_SECRET' }}
+        run: echo 'SIT_SPN_SECRET'
+      - if: ${{ inputs.SPN_Environment == '== 'UAT_SPN_SECRET'' }}
+        run: echo 'UAT_SPN_SECRET'
+      - if: ${{ inputs.SPN_Environment == '== 'PROD_SPN_SECRET'' }}
+        run: echo 'PROD_SPN_SECRET'
+
+    
