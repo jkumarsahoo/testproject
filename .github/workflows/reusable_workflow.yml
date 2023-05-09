@@ -1,0 +1,19 @@
+name: reusable_workflow
+
+on:
+  workflow_call:
+    secrets:
+      TARGET_ENV_SECRET:
+        required: true
+        
+jobs:
+    export-from-dev:
+      runs-on: ubuntu-latest
+      env:
+        RUNNER_DEBUG: 1
+
+      steps:
+        - name: set release date
+          run: |
+            echo '1:' $TARGET_ENV_SECRET
+            
