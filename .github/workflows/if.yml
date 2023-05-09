@@ -21,10 +21,10 @@ jobs:
       some_var: ${{ steps.step1.outputs.some_var }}
     # The Secrect Actions GitHub example has three steps
     steps:
-      - name: xyz
-        id: step1
+      
       # Show how to print unmasked GitHub secrets to the console
       - if: ${{ inputs.SPN_Environment == 'SIT_SPN_SECRET' }}
+        id: step1
         run: |
          echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
          #echo "Target_Env_Secret = ${{ secrets.SIT_SPN_SECRET }}" >> $GITHUB_OUTPUT
