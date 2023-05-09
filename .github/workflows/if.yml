@@ -16,7 +16,7 @@ env:
   
 jobs:
   job2:
-    uses: jkumarsahoo/testproject/.github/workflows/reusable_workflow.yml@latest
+    uses: jkumarsahoo/testproject/.github/workflows/reusable_workflow.yml@main
     with:
       env_name: $SPN_ENV
     secrets:
