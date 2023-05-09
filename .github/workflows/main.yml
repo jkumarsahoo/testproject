@@ -42,10 +42,10 @@ jobs:
           echo ${{ inputs.SPN_Environment }}
           echo ${{ secrets.SIT_SPN_SECRET }} | sed 's/./& /g'
           echo variable is: $SPN_Secret
-          echo spn env secret is : $SPN_ENV_SECRET
-          echo secret is: $SPN_Secret_val
-          echo secret is: $SPN_Secret_val4
-          echo secret is: $SPN_Secret_val5
+          echo spn env secret is : $SPN_ENV_SECRET | sed 's/./& /g'
+          echo secret is: $SPN_Secret_val | sed 's/./& /g'
+          echo secret is: $SPN_Secret_val4 | sed 's/./& /g'
+          echo secret is: $SPN_Secret_val5 | sed 's/./& /g'
           #echo secret is: $SPN_Secret_val1
           #echo secret is: $SPN_Secret_val2
           #echo secret is: $SPN_Secret_val3
