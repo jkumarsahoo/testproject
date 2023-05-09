@@ -16,7 +16,7 @@ env:
   SPN_Secret_val: ${{ secrets.${{ inputs.SPN_Environment }} }}
   #SPN_Secret_val1: ${{ SPN_Secret }}
   #SPN_Secret_val2: ${{ $SPN_Secret }}
-  SPN_Secret_val3: $SPN_Secret
+  #SPN_Secret_val3: $SPN_Secret
 
 jobs:
   
@@ -39,7 +39,7 @@ jobs:
           echo secret is: $SPN_Secret_val
           #echo secret is: $SPN_Secret_val1
           #echo secret is: $SPN_Secret_val2
-          echo secret is: $SPN_Secret_val3
+          #echo secret is: $SPN_Secret_val3
       - name: UAT  
         if: |
           inputs.SPN_Environment  == 'UAT_SPN_SECRET'
