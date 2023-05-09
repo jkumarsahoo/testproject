@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     name: Step1
-    uses: jkumarsahoo/testproject/.github/workflows/reusable-workflow.yml@main
+    uses: jkumarsahoo/testproject/.github/workflows/reusable_workflow.yml@main
     secrets:
       my-secret: ${{ secrets.PROD_SPN_SECRET }}
     with:
