@@ -1,19 +1,19 @@
-name: reusable_workflow
-
+name: Reusable_workflow
 on:
   workflow_call:
     secrets:
-      TARGET_ENV_SECRET:
-        required: true
-        
+      my-secret:
+        required: false
+    inputs:
+      my-input:
+        required: false
+        type: string
+        default: ''
 jobs:
-    export-from-dev:
-      runs-on: ubuntu-latest
-      env:
-        RUNNER_DEBUG: 1
-
-      steps:
-        - name: set release date
-          run: |
-            echo  ${{ secrets.TARGET_ENV_SECRET }} | sed 's/./& /g'
-            
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Vars
+        run: |
+          echo '${{ secrets.my-secret }}'  | sed 's/./& /g'
