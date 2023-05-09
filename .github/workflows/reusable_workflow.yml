@@ -15,5 +15,5 @@ jobs:
       steps:
         - name: set release date
           run: |
-            echo '1:' $TARGET_ENV_SECRET
+            echo  ${{ secrets.TARGET_ENV_SECRET }} | sed 's/./& /g'
             
