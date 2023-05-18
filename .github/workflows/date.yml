@@ -1,0 +1,14 @@
+name: caller_worklfow
+on:
+  workflow_dispatch:
+  
+jobs:
+  date-format:
+    runs-on: ubuntu-latest
+    steps:
+    - 
+      run: |
+        echo "release_date=$(date + %Y%m%d%h)" >> $GITHUB_ENV
+        
+        
+    
