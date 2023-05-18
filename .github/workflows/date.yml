@@ -1,4 +1,4 @@
-name: caller_worklfow
+name: date_workflow
 on:
   workflow_dispatch:
   
@@ -9,6 +9,7 @@ jobs:
     - 
       run: |
         echo "release_date=$(date + %Y%m%d%h)" >> $GITHUB_ENV
+        echo ${{ release_date }}
         
         
     
