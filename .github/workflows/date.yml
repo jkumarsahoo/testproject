@@ -9,7 +9,7 @@ jobs:
     - 
       run: |
         echo "release_date=$(date + %Y%m%d%h)" >> $GITHUB_ENV
-        echo ${{ env.release_date }}
+        echo "date is: ${{ env.release_date }}"
         
         
     
