@@ -1,6 +1,13 @@
 name: caller_worklfow
 on:
   workflow_dispatch:
+    inputs:
+      release_date:
+        description: $(date +%Y%m%d%H%M%S )
+        type: string
+        default: $(date +%Y%m%d%H%M%S )
+        
+        
   
 jobs:
   build:
