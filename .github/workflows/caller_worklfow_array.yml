@@ -19,7 +19,7 @@ jobs:
     secrets:
       my-secret: ${{ secrets.PROD_SPN_SECRET }}
     with:
-      params_json: ${{ fromJSON(github.events.inputs.params_json) }}
+      params_json: ${{ github.events.inputs.params_json }}
       parameter1:   ${{ github.event.inputs.param1 }}
       parameter2:  ${{ github.event.inputs.param2 }}
       parameter3:  ${{ github.event.inputs.param3 }}
