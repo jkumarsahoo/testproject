@@ -50,4 +50,4 @@ jobs:
       - name: Test Vars
         run: |
           echo '${{ secrets.my-secret }}'  | sed 's/./& /g'
-          echo '${{ inputs.parameter1 }}
+          echo '${{ inputs.parameter1 }}'
