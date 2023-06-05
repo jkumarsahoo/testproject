@@ -6,6 +6,10 @@ on:
         description: JSON of paramteters
         type: string
         default: '[]'
+      param2:
+        description: JSON of paramteters
+        type: string
+        default: 'param2'
         
   
 jobs:
@@ -15,7 +19,7 @@ jobs:
     secrets:
       my-secret: ${{ secrets.PROD_SPN_SECRET }}
     with:
-      parameter1:  ${{ github.event.inputs.param1 }}
+      parameter1:  ${{ fromJSON(github.events.inputs.params_json) }}
       parameter2:  ${{ github.event.inputs.param2 }}
       parameter3:  ${{ github.event.inputs.param3 }}
       parameter4:  ${{ github.event.inputs.param4 }}
