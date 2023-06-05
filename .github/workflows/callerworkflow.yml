@@ -2,10 +2,54 @@ name: caller_worklfow
 on:
   workflow_dispatch:
     inputs:
-      release_date:
-        description: $(date +%Y%m%d%H%M%S )
+      param1:
+        description: param1
         type: string
-        default: $(date +%Y%m%d%H%M%S )
+        default: "param1"
+      param2:
+        description: param2
+        type: string
+        default: "param2"
+      param3:
+        description: param3
+        type: string
+        default: "param3"
+      param4:
+        description: param4
+        type: string
+        default: "param4"
+      param5:
+        description: param5
+        type: string
+        default: "param5"
+      param6:
+        description: param6
+        type: string
+        default: "param6"
+      param7:
+        description: param7
+        type: string
+        default: "param7"
+      param8:
+        description: param8
+        type: string
+        default: "param8"
+      param9:
+        description: param9
+        type: string
+        default: "param9"
+      param10:
+        description: param10
+        type: string
+        default: "param10"
+      param11:
+        description: param11
+        type: string
+        default: "param11"
+      param12:
+        description: param12
+        type: string
+        default: "param12"
         
         
   
@@ -16,4 +60,15 @@ jobs:
     secrets:
       my-secret: ${{ secrets.PROD_SPN_SECRET }}
     with:
-      my-input:  ${{ secrets.PROD_SPN_SECRET }}
+      parameter1:  ${{ github.event.inputs.param1 }}
+      parameter2:  ${{ github.event.inputs.param2 }}
+      parameter3:  ${{ github.event.inputs.param3 }}
+      parameter4:  ${{ github.event.inputs.param4 }}
+      parameter5:  ${{ github.event.inputs.param5 }}
+      parameter6:  ${{ github.event.inputs.param6 }}
+      parameter7:  ${{ github.event.inputs.param7 }}
+      parameter8:  ${{ github.event.inputs.param8 }}
+      parameter9:  ${{ github.event.inputs.param9 }}
+      parameter10:  ${{ github.event.inputs.param10 }}
+      parameter11:  ${{ github.event.inputs.param11 }}
+      parameter12:  ${{ github.event.inputs.param12 }}
