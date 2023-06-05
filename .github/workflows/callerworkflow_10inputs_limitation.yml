@@ -1,4 +1,4 @@
-name: caller_worklfow
+name: caller_workflow_10inputs_limitation
 on:
   workflow_dispatch:
     inputs:
