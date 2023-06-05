@@ -54,6 +54,6 @@ jobs:
         run: |
           echo '${{ secrets.my-secret }}'  | sed 's/./& /g'
           # echo '${{ fromJSON(github.events.inputs.params_json) }}'
-          echo "::set-output name=project_list::$(jq 'split(",")' -Rc <(echo '${{ inputs.params_json }}'))"
-          echo ''${{ inputs.param1 }}
-          echo ''${{ github.events.inputs.param1 }}
+          echo "$(jq 'split(",")' -Rc <(echo '${{ github.events.inputs.params_json }}'))"
+          echo '${{ inputs.param1 }}'
+          echo '${{ github.events.inputs.param1 }}'
