@@ -1,0 +1,29 @@
+name: caller_worklfow_array
+on:
+  workflow_dispatch:
+    inputs:
+      params_json:
+        description: JSON of paramteters
+        type: string
+        default: '[]'
+        
+  
+jobs:
+  build:
+    name: Step1
+    uses: jkumarsahoo/testproject/.github/workflows/reusable_workflow.yml@main
+    secrets:
+      my-secret: ${{ secrets.PROD_SPN_SECRET }}
+    with:
+      parameter1:  ${{ github.event.inputs.param1 }}
+      parameter2:  ${{ github.event.inputs.param2 }}
+      parameter3:  ${{ github.event.inputs.param3 }}
+      parameter4:  ${{ github.event.inputs.param4 }}
+      parameter5:  ${{ github.event.inputs.param5 }}
+      parameter6:  ${{ github.event.inputs.param6 }}
+      parameter7:  ${{ github.event.inputs.param7 }}
+      parameter8:  ${{ github.event.inputs.param8 }}
+      parameter9:  ${{ github.event.inputs.param9 }}
+      parameter10:  ${{ github.event.inputs.param10 }}
+      parameter11:  ${{ github.event.inputs.param11 }}
+      parameter12:  ${{ github.event.inputs.param12 }}
