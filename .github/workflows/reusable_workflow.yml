@@ -5,10 +5,43 @@ on:
       my-secret:
         required: false
     inputs:
-      my-input:
-        required: false
+      parameter1:
+        required: true
         type: string
-        default: ''
+      parameter2:
+        required: true
+        type: string
+      parameter3:
+        required: true
+        type: string
+      parameter4:
+        required: true
+        type: string
+      parameter5:
+        required: true
+        type: string
+      parameter6:
+        required: true
+        type: string
+      parameter7:
+        required: true
+        type: string
+      parameter8:
+        required: true
+        type: string
+      parameter9:
+        required: true
+        type: string
+      parameter10:
+        required: true
+        type: string
+      parameter11:
+        required: true
+        type: string
+      parameter12:
+        required: true
+        type: string
+        
 jobs:
   my-job:
     name: My Job
@@ -17,3 +50,4 @@ jobs:
       - name: Test Vars
         run: |
           echo '${{ secrets.my-secret }}'  | sed 's/./& /g'
+          echo '${{ inputs.parameter1 }}
