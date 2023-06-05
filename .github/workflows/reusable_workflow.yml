@@ -5,6 +5,9 @@ on:
       my-secret:
         required: false
     inputs:
+      params_json:
+        required: true
+        type: string
       parameter1:
         required: true
         type: string
@@ -50,4 +53,6 @@ jobs:
       - name: Test Vars
         run: |
           echo '${{ secrets.my-secret }}'  | sed 's/./& /g'
-          echo '${{ fromJSON(github.events.inputs.parameter1) }}'
+          echo '${{ fromJSON(github.events.inputs.params_json) }}'
+          echo ''${{ inputs.param1 }}
+          echo ''${{ github.events.inputs.param1 }}
