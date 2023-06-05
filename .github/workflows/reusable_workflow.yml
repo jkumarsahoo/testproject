@@ -54,4 +54,4 @@ jobs:
         run: |
           echo '${{ secrets.my-secret }}'  | sed 's/./& /g'
           echo '${{ inputs.param1 }}'
-          echo '${{ github.events.inputs.param1 }}'
+          echo '${{ inputs.params_json }}'
