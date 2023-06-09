@@ -18,7 +18,7 @@ jobs:
   call_json:
     uses: jkumarsahoo/testproject/.github/workflows/load_config_json.yml@main
     with:
-      target_env: ${{ github.event.inputs.solution_names }}
+      solution_name: ${{ github.event.inputs.solution_names }}
       
   call-called-wf1:
     needs: call_json
