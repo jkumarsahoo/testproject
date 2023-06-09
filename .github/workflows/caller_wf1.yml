@@ -1,0 +1,28 @@
+name: caller_wf1
+on:
+  workflow_dispatch:
+    inputs:
+      solution_names:
+        required: true
+        type: string
+        default: '[]'
+      target_env:
+        required: true
+        type: choice
+        options:
+        - TEST
+        - UAT
+        - PROD
+  
+jobs:
+  call_json:
+    uses: jkumarsahoo/testproject/.github/workflows/load_config_json.yml@main
+    with:
+      target_env: ${{ github.event.inputs.target_env }}
+      
+  call-called-wf1:
+    needs: call_json
+    uses: jkumarsahoo/testproject/.github/workflows/called_wf1.yml@main
+    with:
+      solution_names: ${{ github.event.inputs.solution_names }}
+      target_env: ${{ github.event.inputs.target_env }}
