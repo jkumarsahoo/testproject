@@ -5,7 +5,7 @@ on:
       solution_names:
         required: true
         type: string
-        default: '[]'
+        
       target_env:
         required: true
         type: choice
