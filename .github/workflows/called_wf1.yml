@@ -8,7 +8,11 @@ on:
         required: true
         type: string
       target_env:
-        description: solution names
+        description: target environment TEST/UAT/PROD
+        required: true
+        type: string
+      use-deployment-setting-file:
+        description: use deployment file TRUE/FLASE
         required: true
         type: string
 
@@ -21,4 +25,5 @@ jobs:
         run: |
           echo '${{ inputs.solution_names }}
           echo '${{ inputs.target_env }}
+           echo '${{ inputs.use-deployment-setting-file }}
          
