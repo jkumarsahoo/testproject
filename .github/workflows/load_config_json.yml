@@ -6,6 +6,10 @@ on:
                 description: 'Solution name'
                 type: string
                 required: true
+            target_envTarget environment:
+                description: 'Target environment'
+                type: string
+                required: true
         outputs:
             json:
                 description: 'Returning JSON output for target environment'
