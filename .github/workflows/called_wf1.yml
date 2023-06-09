@@ -1,0 +1,22 @@
+name: called_wf1
+on:
+  workflow_call:
+    inputs:
+      solution_names:
+        description: solution names
+        required: true
+        type: string
+      target_env:
+        description: solution names
+        required: true
+        type: string
+
+jobs:
+  job1:
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: print
+        run: |
+          echo '${{ inputs.solution_names }}
+          echo '${{ inputs.target_env }}
