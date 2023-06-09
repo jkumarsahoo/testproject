@@ -29,4 +29,6 @@ jobs:
             content="${content//$'\r'/'%0D'}"  
             # setting output
             echo "json=${content}" >> $GITHUB_OUTPUT 
+            echo 'json'
+            echo  '${content}'
         
