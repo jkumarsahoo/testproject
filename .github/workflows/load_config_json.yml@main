@@ -1,0 +1,32 @@
+name: reusable_workflow_load_config
+on: 
+    workflow_call:
+        inputs:
+            target_env:
+                description: 'Target envrionment name'
+                type: string
+                required: true
+        outputs:
+            json:
+                description: 'Returning JSON output for target environment'
+                value: ${{ jobs.load_config_json.outputs.json }}
+jobs:
+    load_config_json:
+        runs-on: ubuntu-latest
+        outputs:
+            json: ${{ steps.step_load_config_json.outputs.json }}
+        steps:
+        - uses: actions/checkout@v3
+        - id: step_load_config_json
+          name: "Load config JSON"
+          shell: bash
+          run: |
+            # read config file
+            content=$(cat config/environments.json | jq '."${{ github.event.inputs.target_env }}"')
+            # remove multi lines
+            content="${content//'%'/'%25'}"   
+            content="${content//$'\n'/''}"   
+            content="${content//$'\r'/'%0D'}"  
+            # setting output
+            echo "json=${content}" >> $GITHUB_OUTPUT 
+        
