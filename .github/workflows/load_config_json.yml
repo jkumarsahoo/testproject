@@ -2,8 +2,8 @@ name: reusable_workflow_load_config
 on: 
     workflow_call:
         inputs:
-            target_env:
-                description: 'Target envrionment name'
+            solution_name:
+                description: 'Solution name'
                 type: string
                 required: true
         outputs:
@@ -22,7 +22,7 @@ jobs:
           shell: bash
           run: |
             # read config file
-            content=$(cat solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_${{ github.event.inputs.target_env }}.json | jq '."${{ github.event.inputs.target_env }}"')
+            content=$(cat solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_${{ github.event.inputs.target_env }}.json | jq '."${{ github.event.inputs.solution_name }}"')
             # remove multi lines
             content="${content//'%'/'%25'}"   
             content="${content//$'\n'/''}"   
