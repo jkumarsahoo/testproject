@@ -22,7 +22,7 @@ jobs:
           shell: bash
           run: |
             # read config file
-            content=$(cat config/environments.json | jq '."${{ github.event.inputs.target_env }}"')
+            content=$(cat solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_${{ github.event.inputs.target_env }}.json | jq '."${{ github.event.inputs.target_env }}"')
             # remove multi lines
             content="${content//'%'/'%25'}"   
             content="${content//$'\n'/''}"   
