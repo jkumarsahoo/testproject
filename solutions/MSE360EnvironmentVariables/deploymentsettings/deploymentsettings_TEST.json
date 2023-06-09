@@ -1,5 +1,5 @@
 {
-"TEST":{
-"use_deployment_setting_file": "123"
+"MSE360EnvironmentVariables":{
+"use_deployment_setting_file": true
 }
 }
