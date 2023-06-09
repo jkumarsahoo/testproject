@@ -6,7 +6,7 @@ on:
                 description: 'Solution name'
                 type: string
                 required: true
-            target_envTarget environment:
+            target_env:
                 description: 'Target environment'
                 type: string
                 required: true
