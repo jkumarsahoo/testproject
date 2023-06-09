@@ -25,5 +25,5 @@ jobs:
         run: |
           echo '${{ inputs.solution_names }}'
           echo '${{ inputs.target_env }}'
-           echo '${{ inputs.use-deployment-setting-file }}'
+           echo '${{ inputs.use_deployment_setting_file }}'
          
