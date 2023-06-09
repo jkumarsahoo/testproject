@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: print
         run: |
-          echo '${{ inputs.solution_names }}
-          echo '${{ inputs.target_env }}
-           echo '${{ inputs.use-deployment-setting-file }}
+          echo '${{ inputs.solution_names }}'
+          echo '${{ inputs.target_env }}'
+           echo '${{ inputs.use-deployment-setting-file }}'
          
