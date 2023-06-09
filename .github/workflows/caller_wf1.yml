@@ -26,4 +26,4 @@ jobs:
     with:
       solution_names: ${{ github.event.inputs.solution_names }}
       target_env: ${{ github.event.inputs.target_env }}
-      use-deployment-setting-file: ${{ fromJson(needs.call_json.outputs.json).use_deployment_setting_file }}
+      use_deployment_setting_file: ${{ fromJson(needs.call_json.outputs.json).use_deployment_setting_file }}
