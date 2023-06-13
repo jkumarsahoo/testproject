@@ -31,7 +31,7 @@ jobs:
     steps:
     - name: Get deployment settings details1
       run: |
-       use_val=${{ fromJSON(github.event.inputs.solution_details }} | jq '."${{ matrix.solution_name}}".use_deployment_settings_file' >> $GITHUB_ENV
+       use_val=${{ fromJSON(github.event.inputs.solution_details) }} | jq '."${{ matrix.solution_name}}".use_deployment_settings_file' >> $GITHUB_ENV
        echo '${{ env.use_val }}'
        
     - name: Get Deployment settings details
