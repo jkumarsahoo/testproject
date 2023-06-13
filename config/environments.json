@@ -1,0 +1,14 @@
+{
+"TEST":{
+  "tenant_id": "TEST_tenant_id",
+  "sol1":{
+  "use_deployment_settings_file": true
+  }
+},
+  "UAT":{
+  "tenant_id": "UAT_tenant_id",
+  "sol1":{
+  "use_deployment_settings_file": false
+  }
+}
+}
