@@ -53,5 +53,16 @@ jobs:
       - name: Test Vars
         run: |
           echo '${{ secrets.my-secret }}'  | sed 's/./& /g'
-          echo '${{ inputs.param1 }}'
+          echo '${{ inputs.parameter1 }}'
+          echo '${{ inputs.parameter2 }}'
+          echo '${{ inputs.parameter3 }}'
+          echo '${{ inputs.parameter4 }}'
+          echo '${{ inputs.parameter5 }}'
+          echo '${{ inputs.parameter6 }}'
+          echo '${{ inputs.parameter7 }}'
+          echo '${{ inputs.parameter8 }}'
+          echo '${{ inputs.parameter9 }}'
+          echo '${{ inputs.parameter10 }}'
+          echo '${{ inputs.parameter11 }}'
+          echo '${{ inputs.parameter12 }}'
           echo '${{ inputs.params_json }}'
