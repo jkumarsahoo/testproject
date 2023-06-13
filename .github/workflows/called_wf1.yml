@@ -37,10 +37,12 @@ jobs:
       
        
     - name: Get Deployment settings details
-      if: ${{ env.use_deployment_settings_file }} == true
       run: |
-       echo 'deployment_setting_file_path=solutions/${{ matrix.solution_name }}/deploymentsettings/deploymentsettings_${{  github.event.inputs.target_env}}.json' >> $GITHUB_ENV
-  
+       if: ${{ env.use_deployment_settings_file }} == 'true';then
+        echo 'deployment_setting_file_path=solutions/${{ matrix.solution_name }}/deploymentsettings/deploymentsettings_${{  github.event.inputs.target_env}}.json' >> $GITHUB_ENV
+       else
+        echo 'deployment_setting_file_path=""' >> $GITHUB_ENV
+       fi 
     - name: print
       run: |
           echo '${{ inputs.solution_names }}'
