@@ -5,5 +5,12 @@
   "MSE360EnvironmentVariables":{
   "use_deployment_settings_file": true
   }
+  },
+  "UAT":{
+  "tenant_id": "TEST_tenant_id",
+  "use_deployment_settings_file": false,
+  "MSE360EnvironmentVariables":{
+  "use_deployment_settings_file": true
+  }
   }
 }
