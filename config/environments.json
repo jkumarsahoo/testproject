@@ -2,8 +2,10 @@
   "TEST":{
   "tenant_id": "TEST_tenant_id",
   "use_deployment_settings_file": true,
+  "solutions":{
   "MSE360EnvironmentVariables":{
   "use_deployment_settings_file": true
+  }
   }
   },
   "UAT":{
