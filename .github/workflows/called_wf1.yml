@@ -35,5 +35,5 @@ jobs:
            echo '${{ matrix.solution_name }}'
           echo '${{ inputs.target_env }}'
            echo '${{ inputs.use_deployment_setting_file }}'
-           echo '${{ env.deployment_setting_file_path }}
+           echo '${{ env.deployment_setting_file_path }}'
          
