@@ -20,13 +20,24 @@ jobs:
     uses: jkumarsahoo/testproject/.github/workflows/load_config_json.yml@main
     with:
       target_env: ${{ github.event.inputs.target_env }}
-      
-  call-called-wf1:
+  
+  get-deployment-setting-solution-details:
     needs: call_json
+    runs-on: ubuntu-latest
+    outputs: 
+      param: ${{ steps.create-json-step.outputs.json }}
+    steps:
+    - name: Create Json string
+      id: create-json-step
+      run: |
+       echo 'json=${{ fromJson(needs.call_json.outputs.json).solutions }}' >> GITHUB_ENV
+  
+  call-called-wf1:
+    needs: get-deployment-setting-solution-details
     uses: jkumarsahoo/testproject/.github/workflows/called_wf1.yml@main
     with:
       solution_names: ${{ github.event.inputs.solution_names }}
       target_env: ${{ github.event.inputs.target_env }}
       use_deployment_setting_file: ${{ fromJson(needs.call_json.outputs.json).use_deployment_settings_file }}
-      solution_details: ${{ fromJson(needs.call_json.outputs.json).solutions }}
+      solution_details: ${{ jobs.get-deployment-setting-solution-details.outputs.param }}
     
