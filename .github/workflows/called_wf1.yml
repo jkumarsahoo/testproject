@@ -23,7 +23,7 @@ jobs:
     - name: Get Deployment settings details
       if: inputs.use_deployment_setting_file == 'true'
       run: |
-       echo 'deployment_setting_file_path=solutions/${{ inputs.solution_names }}/deploymentsettings/deploymentsettings_$ {{  github.event.inputs.target_env}}.json'
+       echo 'deployment_setting_file_path=solutions/${{ inputs.solution_names }}/deploymentsettings/deploymentsettings_${{  github.event.inputs.target_env}}.json'
   
     - name: print
       run: |
