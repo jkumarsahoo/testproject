@@ -32,7 +32,7 @@ jobs:
     - name: Get deployment settings details1
       run: |
        echo '${{ inputs.solution_details }}' > target_details.json
-       use_deployment_settings_file1=$(jq -r '.MSE360EnvironmentVariables.use_deployment_settings_file' target_details.json)  >> $GITHUB_ENV
+       use_deployment_settings_file1=$(jq -r '."MSE360EnvironmentVariables"."use_deployment_settings_file"' target_details.json)  >> $GITHUB_ENV
        echo ${use_deployment_settings_file1}
       
        
