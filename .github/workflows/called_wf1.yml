@@ -29,6 +29,10 @@ jobs:
       solution_name: ${{ fromJSON(github.event.inputs.solution_names) }}
     runs-on: ubuntu-latest
     steps:
+    - name: Get deployment settings details1
+       use_val=${{ fromJSON(github.event.inputs.solution_details }} | jq '."${{ matrix.solution_name}}".use_deployment_settings_file' >> $GITHUB_ENV
+       echo '${{ env.use_val }}
+       
     - name: Get Deployment settings details
       if: inputs.use_deployment_setting_file == 'true'
       run: |
