@@ -25,7 +25,7 @@ jobs:
     needs: call_json
     runs-on: ubuntu-latest
     outputs: 
-      param: ${{ steps.create-json-step.outputs.json }}
+      param: ${{ steps.create-json-step.outputs.json }} | jq -r '.[].solutions'
     steps:
     - name: Create Json string
       id: create-json-step
