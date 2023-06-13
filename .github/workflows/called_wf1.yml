@@ -37,7 +37,7 @@ jobs:
       
        
     - name: Get Deployment settings details
-      if: ${{ env.use_deployment_settings_file }} == 'true'
+      if: ${{ env.use_deployment_settings_file }} == true
       run: |
        echo 'deployment_setting_file_path=solutions/${{ matrix.solution_name }}/deploymentsettings/deploymentsettings_${{  github.event.inputs.target_env}}.json' >> $GITHUB_ENV
   
