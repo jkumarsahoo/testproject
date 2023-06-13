@@ -2,6 +2,6 @@
   "TEST":{
   "tenant_id": "TEST_tenant_id",
   "use_deployment_settings_file": true,
-  "deployment_settings_file_path": "solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_TEST.json"
+  "deployment_settings_file_path": ""
   }
 }
