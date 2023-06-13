@@ -18,11 +18,15 @@ on:
 
 jobs:
   job1:
-    name: job1
     runs-on: ubuntu-latest
     steps:
-      - name: print
-        run: |
+    - name: Get Deployment settings details
+      if: inputs.use_deployment_setting_file == 'true'
+      run: |
+       echo 'deployment_setting_file_path=solutions/${{ inputs.solution_names }}/deploymentsettings/deploymentsettings_$ {{  github.event.inputs.target_env}}.json'
+  
+    - name: print
+      run: |
           echo '${{ inputs.solution_names }}'
           echo '${{ inputs.target_env }}'
            echo '${{ inputs.use_deployment_setting_file }}'
