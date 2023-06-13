@@ -31,10 +31,7 @@ jobs:
     steps:
     - name: Get deployment settings details1
       run: |
-       echo '${{ inputs.solution_details }}' > solution_detail.json
-       content=$(cat solution_detail.json | jq '."${{ matrix.solution_name }}"') >> GITHUB_ENV
-       echo 'inner_val=$(jq -r '.${{ matrix.solution_name }}.use_deployment_settings_file solution_detail.json)
-       echo '${{ env.inner_val }}'
+       echo 'inner_val=${{ fromJson(inputs.solution_details)}} | jq -r '."${{ matrix.solution_name }}".use_deployment_settings_file'  >> $GITHUB_ENV
        
     - name: Get Deployment settings details
       if: ${{ env.inner_val }} == 'true'
@@ -49,5 +46,5 @@ jobs:
            echo '${{ inputs.use_deployment_setting_file }}'
            echo '${{ env.deployment_setting_file_path }}'
            echo '${{ env.inner_val }}'
-           echo '${{ env.content }}'
+          
          
