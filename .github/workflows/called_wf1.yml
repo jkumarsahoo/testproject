@@ -18,16 +18,21 @@ on:
 
 jobs:
   job1:
+    strategy:
+     max-parallel: 1
+     matrix:
+      solution_name: ${{ fromJSON(github.event.inputs.solution_names) }}
     runs-on: ubuntu-latest
     steps:
     - name: Get Deployment settings details
       if: inputs.use_deployment_setting_file == 'true'
       run: |
-       echo 'deployment_setting_file_path=solutions/${{ inputs.solution_names }}/deploymentsettings/deploymentsettings_${{  github.event.inputs.target_env}}.json'
+       echo 'deployment_setting_file_path=solutions/${{ matrix.solution_name }}/deploymentsettings/deploymentsettings_${{  github.event.inputs.target_env}}.json'
   
     - name: print
       run: |
           echo '${{ inputs.solution_names }}'
+           echo '${{ matrix.solution_name }}'
           echo '${{ inputs.target_env }}'
            echo '${{ inputs.use_deployment_setting_file }}'
          
