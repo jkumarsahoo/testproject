@@ -15,6 +15,11 @@ on:
         description: use deployment file TRUE/FLASE
         required: true
         type: string
+        
+      solution_details:
+        description: deployment settings details for solutions
+        required: true
+        type: string
 
 jobs:
   job1:
