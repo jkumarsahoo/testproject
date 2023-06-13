@@ -1,5 +1,8 @@
 {
-"MSE360EnvironmentVariables":{
-"use_deployment_setting_file": true
+"EnvironmentVariables":[
+  {
+"SchemaName": "mse360_Warehouse",
+"value": ""       
 }
+  ]
 }
