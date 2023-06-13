@@ -3,21 +3,5 @@
   "tenant_id": "TEST_tenant_id",
   "use_deployment_settings_file": true,
   "deployment_settings_file_path": "solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_TEST.json"
-  },
-"TEST1":{
-  "tenant_id": "TEST_tenant_id",
-  "use_deployment_settings_file": true,
-  "deployment_settings_file_path": "solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_TEST.json",
-  "MSE360EnvironmentVariables":{
-  "use_deployment_settings_file": true
-  "deployment_settings_file_path": "solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_TEST.json"
   }
-},
-  "UAT":{
-  "tenant_id": "UAT_tenant_id",
-  "MSE360EnvironmentVariables":{
-  "use_deployment_settings_file": false,
-  "deployment_settings_file_path": ""
-  }
-}
 }
