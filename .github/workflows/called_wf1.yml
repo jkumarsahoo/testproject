@@ -11,7 +11,7 @@ on:
         description: target environment TEST/UAT/PROD
         required: true
         type: string
-      use_deployment_setting_file:
+      use_deployment_setting_file1:
         description: use deployment file TRUE/FLASE
         required: true
         type: string
@@ -32,12 +32,12 @@ jobs:
     - name: Get deployment settings details1
       run: |
        echo '${{ inputs.solution_details }}' > target_details.json
-       echo 'use_deployment_settings_file1=$(jq -r '."${{ matrix.solution_name }}"."use_deployment_settings_file"' target_details.json)'  >> $GITHUB_ENV
-       echo ${use_deployment_settings_file1}
+       echo 'use_deployment_settings_file=$(jq -r '."${{ matrix.solution_name }}"."use_deployment_settings_file"' target_details.json)'  >> $GITHUB_ENV
+       echo ${{ env.use_deployment_settings_file }}
       
        
     - name: Get Deployment settings details
-      if: ${{ env.inner_val }} == 'true'
+      if: ${{ env.use_deployment_settings_file }} == 'true'
       run: |
        echo 'deployment_setting_file_path=solutions/${{ matrix.solution_name }}/deploymentsettings/deploymentsettings_${{  github.event.inputs.target_env}}.json' >> $GITHUB_ENV
   
@@ -48,8 +48,6 @@ jobs:
           echo '${{ inputs.target_env }}'
            echo '${{ inputs.use_deployment_setting_file }}'
            echo '${{ env.deployment_setting_file_path }}'
-           echo '${{ env.inner_val }}'
-           echo ${{ env.use_deployment_settings_file1 }}
-           echo ${use_deployment_settings_file1}
-          
+           echo ${{ env.use_deployment_settings_file }}
+           
          
