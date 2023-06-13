@@ -28,7 +28,8 @@ jobs:
             # read config file
             echo '${{ github.event.inputs.target_env }}'
             echo '${{ inputs.solution_name }}'
-            content=$(cat solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_${{ github.event.inputs.target_env }}.json | jq '."${{ inputs.solution_name }}"')
+            # content=$(cat solutions/MSE360EnvironmentVariables/deploymentsettings/deploymentsettings_${{ github.event.inputs.target_env }}.json | jq '."${{ inputs.solution_name }}"')
+            content=$(cat config/environments.json | jq '."${{ inputs.solution_name }}"')
             # remove multi lines
             content="${content//'%'/'%25'}"   
             content="${content//$'\n'/''}"   
