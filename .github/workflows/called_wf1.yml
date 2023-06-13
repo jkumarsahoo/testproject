@@ -32,9 +32,9 @@ jobs:
     - name: Get deployment settings details1
       run: |
        echo '${{ inputs.solution_details }}' > target_details.json
-       use_deployment_settings_file1=$(jq -r '.MSE360EnvironmentVariables.use_deployment_settings_file' target_details.json)
-       echo $use_deployment_settings_file1
-       echo "::set-output name=json::$json"
+       use_deployment_settings_file1=$(jq -r '.MSE360EnvironmentVariables.use_deployment_settings_file' target_details.json)  >> $GITHUB_ENV
+       echo ${use_deployment_settings_file1}
+      
        
     - name: Get Deployment settings details
       if: ${{ env.inner_val }} == 'true'
@@ -49,6 +49,6 @@ jobs:
            echo '${{ inputs.use_deployment_setting_file }}'
            echo '${{ env.deployment_setting_file_path }}'
            echo '${{ env.inner_val }}'
-           echo ${env.content}
+           echo ${env.use_deployment_settings_file1}
           
          
