@@ -31,7 +31,7 @@ jobs:
     steps:
     - name: Get deployment settings details1
       run: |
-       inner_val: ${{ toJSON(fromJson(inputs.solution_details).MSE360EnvironmentVariables.use_deployment_settings_file) }}  >> $GITHUB_ENV
+       echo 'inner_val= ${{ toJSON(fromJson(inputs.solution_details).MSE360EnvironmentVariables.use_deployment_settings_file) }}'  >> $GITHUB_ENV
        echo '${{ env.inner_val }}'
        
     - name: Get Deployment settings details
