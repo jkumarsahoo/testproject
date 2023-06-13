@@ -32,7 +32,7 @@ jobs:
     - name: Get deployment settings details1
       run: |
        echo '${{ fromJson(inputs.solution_details) }}' > solution_detail.json
-       content=$(cat solution_detail.json | jq '."${{ matrix.solution_name }}"') >> GITHUB_ENV
+       content=$(cat ${{ fromJson(inputs.solution_details) }} | jq '."${{ matrix.solution_name }}"') >> GITHUB_ENV
        
     - name: Get Deployment settings details
       if: ${{ env.inner_val }} == 'true'
