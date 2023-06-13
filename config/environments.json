@@ -5,6 +5,12 @@
   "solutions":{
   "MSE360EnvironmentVariables":{
   "use_deployment_settings_file": true
+  },
+    "S2":{
+  "use_deployment_settings_file": false
+  },
+    "S3":{
+  "use_deployment_settings_file": true
   }
   }
   },
