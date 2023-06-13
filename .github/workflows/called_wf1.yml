@@ -32,7 +32,7 @@ jobs:
     - name: Get deployment settings details1
       run: |
        echo '${{ fromJson(inputs.solution_details) }}' > solution_detail.json
-       content=$(cat solution_detail.json | jq '."${{ matrix.solution_name }}" }}"') >> GITHUB_ENV
+       content=$(cat solution_detail.json | jq '."${{ matrix.solution_name }}"') >> GITHUB_ENV
        echo 'inner_val=$(jq -r '.${{ matrix.solution_name }}.use_deployment_settings_file solution_detail.json)
        echo '${{ env.inner_val }}'
        
