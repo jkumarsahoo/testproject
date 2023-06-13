@@ -49,6 +49,7 @@ jobs:
            echo '${{ inputs.use_deployment_setting_file }}'
            echo '${{ env.deployment_setting_file_path }}'
            echo '${{ env.inner_val }}'
-           echo ${env.use_deployment_settings_file1}
+           echo ${{ env.use_deployment_settings_file1 }}
+           echo ${use_deployment_settings_file1}
           
          
