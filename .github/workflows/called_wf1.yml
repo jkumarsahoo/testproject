@@ -35,7 +35,7 @@ jobs:
        echo 'use_deployment_settings_file=$(jq -r '."${{ matrix.solution_name }}"."use_deployment_settings_file"' target_details.json)'  >> $GITHUB_ENV
        var1=$(jq -r '."${{ matrix.solution_name }}"."use_deployment_settings_file"' target_details.json)' 
        echo '$var1'
-       echo '${{ use_deployment_settings_file }}'
+       echo '${{ env.use_deployment_settings_file }}'
        
       
        
