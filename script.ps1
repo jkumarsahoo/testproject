@@ -1,6 +1,7 @@
 param(
     [Switch]$Fail, 
     [Switch]$ExitCode, 
+    $Parameter1,
     $Parameter1
 )
 echo "env variable is:" $Env:MyVariable
@@ -14,5 +15,4 @@ if ($ExitCode) {
 }
 
 $Env:MyVariable
-$Parameter1
 $PSVersionTable
